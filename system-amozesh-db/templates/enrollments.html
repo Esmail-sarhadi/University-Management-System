@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrollments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enrollments</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Enrollment Code</th>
+                    <th>Enrollment Date</th>
+                    <th>Educational Group Code</th>
+                    <th>Employee Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enrollment in enrollments %}
+                <tr>
+                    <td>{{ enrollment.enrollment_code }}</td>
+                    <td>{{ enrollment.enrollment_date }}</td>
+                    <td>{{ enrollment.educational_group_code }}</td>
+                    <td>{{ enrollment.employee_code }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

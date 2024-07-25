@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lessons with More Than Five Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lessons with More Than Five Students</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Lesson Code</th>
+                </tr>
+            </thead>
+            <tbody id="lessons-table">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('/query/lessons_more_than_five_students')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('lessons-table');
+                data.forEach(lesson => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${lesson.lesson_code}</td>`;
+                    table.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

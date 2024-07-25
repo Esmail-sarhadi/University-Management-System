@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Enrollments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Enrollments</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Student Number</th>
+                </tr>
+            </thead>
+            <tbody id="enrollments-table">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('/query/student_enrollments')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('enrollments-table');
+                data.forEach(enrollment => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${enrollment.student_number}</td>`;
+                    table.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>

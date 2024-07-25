@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professors</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Professors</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Master Code</th>
+                    <th>Position</th>
+                    <th>National Code</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Educational Group Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for professor in professors %}
+                <tr>
+                    <td>{{ professor.master_code }}</td>
+                    <td>{{ professor.position }}</td>
+                    <td>{{ professor.national_code }}</td>
+                    <td>{{ professor.firstname }}</td>
+                    <td>{{ professor.lastname }}</td>
+                    <td>{{ professor.email }}</td>
+                    <td>{{ professor.phone_number }}</td>
+                    <td>{{ professor.educational_group_code }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Libraries</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Libraries</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Library Code</th>
+                    <th>Address</th>
+                    <th>Name</th>
+                    <th>Number of Books</th>
+                    <th>University Address</th>
+                    <th>Educational Group Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for library in libraries %}
+                <tr>
+                    <td>{{ library.library_code }}</td>
+                    <td>{{ library.address }}</td>
+                    <td>{{ library.name }}</td>
+                    <td>{{ library.number_of_books }}</td>
+                    <td>{{ library.university_address }}</td>
+                    <td>{{ library.educational_group_code }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

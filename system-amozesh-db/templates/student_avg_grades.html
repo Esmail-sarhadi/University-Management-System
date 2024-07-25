@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Average Grades</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Average Grades</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Student Number</th>
+                    <th>Average Grade</th>
+                </tr>
+            </thead>
+            <tbody id="grades-table">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        fetch('/query/student_avg_grades')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('grades-table');
+                data.forEach(grade => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${grade.student_number}</td>
+                        <td>${grade.avg_grade}</td>
+                    `;
+                    table.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>
